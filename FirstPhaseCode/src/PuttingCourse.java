@@ -1,5 +1,3 @@
-package AbstractClass;
-
 public class PuttingCourse {
 
     public PuttingCourse(Function2d height, Vector2d flag, Vector2d start);

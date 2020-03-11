@@ -1,5 +1,3 @@
-package AbstractClass;
-
 public interface Function2d {
 
     public double evaluate(Vector2d p);

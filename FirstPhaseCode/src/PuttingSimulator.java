@@ -1,5 +1,3 @@
-package AbstractClass;
-
 public class PuttingSimulator {
 
     public PuttingSimulator(PuttingCourse, PhysicsEngine);

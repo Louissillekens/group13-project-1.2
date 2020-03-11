@@ -28,16 +28,20 @@ public class PuttingCourse {
 
     public double get_friction_coefficient(){
 
+
         //TODO finish this method
+        return 0;
     }
 
     public double get_maximum_velocity(){
 
         //TODO finish this method
+        return 0;
     }
 
     public double get_hole_tolerance(){
 
         //TODO finish this method
+        return 0;
     }
 }

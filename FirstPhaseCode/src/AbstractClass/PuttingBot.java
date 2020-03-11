@@ -1,4 +1,4 @@
-package AbstractMethods;
+package AbstractClass;
 
 public interface PuttingBot {
 

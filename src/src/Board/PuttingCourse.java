@@ -1,20 +1,61 @@
 package Board;
 
-public class PuttingCourse{
+public class PuttingCourse implements Function2d {
 
+    private double friction_coefficient;
+    private double maximum_velocity;
+    private double hole_tolerance;
     private Function2d height;
     private Vector2d flag;
     private Vector2d start;
+    private double[][] board;
 
-    public PuttingCourse(Function2d height, Vector2d flag, Vector2d start) {
+    public PuttingCourse(double[][] board, Function2d height, Vector2d flag, Vector2d start,
+                         double friction_coefficient, double maximum_velocity, double hole_tolerance) {
 
+        this.board = board;
         this.height = height;
         this.flag = flag;
         this.start = start;
+        this.friction_coefficient = friction_coefficient;
+        this.maximum_velocity = maximum_velocity;
+        this.hole_tolerance = hole_tolerance;
+    }
+
+    // Evaluate the height of a vector with its x and y position on the game board
+    @Override
+    public double evaluate_height(Vector2d p, double out_of_bounds_height) {
+
+        double x = p.get_x();
+        double y = p.get_y();
+        if (x < 0 || y < 0 || x >= board.length || y >= board.length) {
+            return out_of_bounds_height;
+        }
+        double x_diff = x - Math.floor(x);
+        double y_diff = y - Math.floor(y);
+        double n1 = board[(int) Math.floor(x)][(int) Math.floor(y)];
+        double n2 = board[(int) Math.floor(x)][(int) Math.floor(y)];
+
+        return ((x_diff + y_diff)/2) * (n2-n1)+n1;
+    }
+
+    // Evaluate the friction coefficient of a vector wrt slope and ground
+    @Override
+    public double evaluate_friction(Vector2d p) {
+
+        // TODO implement a friction evaluator
+        return 0;
+    }
+
+    @Override
+    public Vector2d gradient(Vector2d p) {
+
+        // TODO implement the gradient method
+        return start;
     }
 
     // Return an object of type Function2d
-    // Access to the height of a vector by doing height.evaluate(Vector2d p);
+    // Access to the height of a location on the field by doing get_height.evaluate_height(Vector2d p);
     public Function2d get_height() {
 
         return height;
@@ -37,18 +78,18 @@ public class PuttingCourse{
     // Return the friction coefficient of the start vector
     public double get_friction_coefficient() {
 
-        return start.get_mu();
+        return friction_coefficient;
     }
 
     // Return the maximum velocity of the start vector
     public double get_maximum_velocity() {
 
-        return start.get_vmax();
+        return maximum_velocity;
     }
 
     // Return the winning tolerance of the hole
     public double get_hole_tolerance() {
 
-        return flag.get_tolerance();
+        return hole_tolerance;
     }
 }

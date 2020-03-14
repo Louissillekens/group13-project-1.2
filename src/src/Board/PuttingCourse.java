@@ -81,7 +81,7 @@ public class PuttingCourse implements Function2d {
         return friction_coefficient;
     }
 
-    // Return the maximum velocity of the start vector
+    // Return the maximum velocity on this course
     public double get_maximum_velocity() {
 
         return maximum_velocity;

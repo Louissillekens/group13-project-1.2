@@ -2,7 +2,7 @@ package Board;
 
 public class PuttingCourse implements Function2d {
 
-    private double friction_coefficient;
+    private double friction_coefficient;//for now just a coefficient for the entire field, later a function like height
     private double maximum_velocity;
     private double hole_tolerance;
     private Function2d height;

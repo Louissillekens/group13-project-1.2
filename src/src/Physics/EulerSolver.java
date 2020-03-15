@@ -1,5 +1,7 @@
 package Physics;
 
+import org.graalvm.compiler.core.common.type.ArithmeticOpTable.UnaryOp.Sqrt;
+
 public class EulerSolver implements PhysicsEngine {
     double dt;
     double Px;
@@ -27,13 +29,15 @@ public class EulerSolver implements PhysicsEngine {
         Vx=0;
         Vy=0;
     }
-    public void set_resistance(double x, double y){
+    public double get_resistance(double x, double y){
         //TODO
-        resistance = ?;
+        double res =?;
+        return res;
     }
-    public void set_height(double x, double y){
+    public double get_height(double x, double y){
         //TODO
-        height = ?;
+        double h = ?;
+        return h;
     }
     public void update_p(){
         Pxprev=Px;
@@ -46,8 +50,8 @@ public class EulerSolver implements PhysicsEngine {
         Vy= Vy+ay*dt;
     }
     public void update_a(){
-        ax=
-        ay=
+        ax= ax -g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vx/Sqrt(Vx^2+Vy^2));
+        ay= ay -g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vy/Sqrt(Vx^2+Vy^2));
 
     }
 

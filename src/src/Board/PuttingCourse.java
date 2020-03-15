@@ -12,7 +12,8 @@ public class PuttingCourse implements Function2d {
     private double[][] board;
     private Ball ball;
 
-    public PuttingCourse(double[][] board, Function2d height, Vector2d flag, Vector2d start, double friction_coefficient,
+
+    public PuttingCourse(double[][] board, Vector2d flag, Vector2d start, double friction_coefficient,
                          double maximum_velocity, double hole_tolerance, double out_of_bounds_height, Ball ball) {
 
         this.ball = ball;
@@ -24,6 +25,11 @@ public class PuttingCourse implements Function2d {
         this.maximum_velocity = maximum_velocity;
         this.hole_tolerance = hole_tolerance;
         this.out_of_bounds_height = out_of_bounds_height;
+    }
+
+    public PuttingCourse() {
+
+        System.out.println("Default Constructor");
     }
 
     // Evaluate the height of a vector with its x and y position on the game board

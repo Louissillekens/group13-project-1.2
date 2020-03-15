@@ -1,4 +1,3 @@
-
 package Board;
 
 public class Vector2d {

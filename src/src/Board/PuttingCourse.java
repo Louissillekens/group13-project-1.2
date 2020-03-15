@@ -32,7 +32,7 @@ public class PuttingCourse implements Function2d {
 
         double x = p.get_x();
         double y = p.get_y();
-        if (x < 0 || y < 0 || x >= board.length || y >= board.length) {
+        if (x < 0 || y < 0 || x > board.length-1 || y > board[0].length-1) {
             return out_of_bounds_height;
         }
         if (x == Math.floor(x) && y == Math.floor(y)) {
@@ -41,7 +41,13 @@ public class PuttingCourse implements Function2d {
         double x_diff = x - Math.floor(x);
         double y_diff = y - Math.floor(y);
         double n1 = board[(int) Math.floor(x)][(int) Math.floor(y)];
-        double n2 = board[(int) Math.floor(x+1)][(int) Math.floor(y+1)];
+        double n2;
+        if (x >= board.length-1 || y >= board[0].length-1) {
+            n2 = 1;
+        }
+        else {
+            n2 =  board[(int) Math.floor(x + 1)][(int) Math.floor(y + 1)];
+        }
 
         return ((x_diff + y_diff)/2) * (n2-n1)+n1;
     }
@@ -59,13 +65,14 @@ public class PuttingCourse implements Function2d {
 
         double x = p.get_x();
         double y = p.get_y();
+
         double x1;
         double y1;
 
-        double step = 1e-4;
+        double step = 0.1;
 
-        x1 = evaluate_height(new Vector2d(x+step, y)) - evaluate_height(new Vector2d(x-step, y))/(2*step);
-        y1 = evaluate_height(new Vector2d(x, y+step)) - evaluate_height(new Vector2d(x, y-step))/(2*step);
+        x1 = evaluate_height(new Vector2d(x+step, y)) - evaluate_height(new Vector2d(x-step, y));
+        y1 = evaluate_height(new Vector2d(x, y+step)) - evaluate_height(new Vector2d(x, y-step));
 
         p = new Vector2d(x1, y1);
         return p;
@@ -120,3 +127,4 @@ public class PuttingCourse implements Function2d {
         return ball;
     }
 }
+

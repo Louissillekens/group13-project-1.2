@@ -50,8 +50,8 @@ public class EulerSolver implements PhysicsEngine {
         Vy= Vy+ay*dt;
     }
     public void update_a(){
-        ax= ax -g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vx/Sqrt(Vx^2+Vy^2));
-        ay= ay -g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vy/Sqrt(Vx^2+Vy^2));
+        ax= ax -g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vx/Math.sqrt(Vx*Vx +Vy*Vy));
+        ay= ay -g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vy/Math.sqrt(Vx*Vx +Vy*Vy));
 
     }
 

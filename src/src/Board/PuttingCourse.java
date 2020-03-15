@@ -9,10 +9,12 @@ public class PuttingCourse implements Function2d {
     private Vector2d flag;
     private Vector2d start;
     private double[][] board;
+    private Ball ball;
 
     public PuttingCourse(double[][] board, Function2d height, Vector2d flag, Vector2d start,
-                         double friction_coefficient, double maximum_velocity, double hole_tolerance) {
+                         double friction_coefficient, double maximum_velocity, double hole_tolerance, Ball ball) {
 
+        this.ball = ball;
         this.board = board;
         this.height = height;
         this.flag = flag;
@@ -91,5 +93,9 @@ public class PuttingCourse implements Function2d {
     public double get_hole_tolerance() {
 
         return hole_tolerance;
+    }
+
+    public Ball getBall(){
+        return ball;
     }
 }

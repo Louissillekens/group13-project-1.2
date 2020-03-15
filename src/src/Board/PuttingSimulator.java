@@ -15,12 +15,12 @@ public class PuttingSimulator {
 
     public void set_ball_position(Vector2d p) {
 
-        //TODO finish this method
+        course.getBall().setLocation(p);
     }
 
     public void get_ball_position() {
 
-        //TODO finish this method
+        course.getBall().getLocation();
     }
 
     public void take_shot(Vector2d initial_ball_velocity) {

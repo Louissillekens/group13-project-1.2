@@ -11,7 +11,7 @@ public class TestCourse {
                                  {1.1 , 1.2 , 1.2 , 1.25, 1.34, 1   , 0.33, 0.1},
                                  {1.43, 1.23, 1.18, 0.9 , 0.4 , 0   ,-0.4 ,-1.2}};
 
-        
+
         double[][] friction_map = new double[10][10];
         for(int i = 0 ; i < friction_map.length ; i++){
             for(int j = 0 ; j < friction_map[0].length ; j++){

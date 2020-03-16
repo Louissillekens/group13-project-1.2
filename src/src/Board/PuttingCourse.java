@@ -34,6 +34,11 @@ public class PuttingCourse{
         friction = new Friction_function(friction_map, out_of_bounds_friction);
         this.flag = flag;
         this.start = start;
+
+        //standard values like in the project manual
+        ball = new Ball(start, 45.93);
+        maximum_velocity = 3;
+        hole_tolerance = 0.2;
     }
 
 

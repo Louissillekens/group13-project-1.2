@@ -68,4 +68,9 @@ public class EulerSolver extends PuttingCourse {
         Vector2d p = new Vector2d(x, y);
         return evaluate_height(p);
     }
+    public void update_all(){
+        update_p();
+        update_v();
+        update_a();
+    }
 }

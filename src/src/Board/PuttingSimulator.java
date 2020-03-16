@@ -1,8 +1,9 @@
 package Board;
 
+import Physics.EulerSolver;
 import Physics.PhysicsEngine;
 
-public class PuttingSimulator {
+public class PuttingSimulator extends EulerSolver {
 
     private PuttingCourse course;
     private PhysicsEngine engine;

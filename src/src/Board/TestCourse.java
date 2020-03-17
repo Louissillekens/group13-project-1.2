@@ -22,7 +22,7 @@ public class TestCourse {
         double out_of_bounds_height = 1; //outside of the array the height is just 1
         double out_of_bounds_friction = 0.131;//outside the array the friction is just 0.131
 
-        Vector2d start = new Vector2d(1,2);
+        Vector2d start = new Vector2d(1.5,2);
         Vector2d flag = new Vector2d(2,5);
 
         Ball ball = new Ball(start, 5);

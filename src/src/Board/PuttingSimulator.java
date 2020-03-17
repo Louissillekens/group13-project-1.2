@@ -7,6 +7,9 @@ public class PuttingSimulator extends EulerSolver {
 
     private PuttingCourse course;
     private PhysicsEngine engine;
+    Vector2d position = new Vector2d(0, 0);
+    Vector2d velocity = new Vector2d(0, 0);
+    Vector2d acceleration;
 
     public PuttingSimulator(PuttingCourse course, PhysicsEngine engine) {
 
@@ -15,6 +18,7 @@ public class PuttingSimulator extends EulerSolver {
     }
 
     public void set_ball_position(Vector2d p) {
+        Vector2d np = new Vector2d(x, y);   
 
         course.getBall().setLocation(p);
     }
@@ -24,8 +28,10 @@ public class PuttingSimulator extends EulerSolver {
         course.getBall().getLocation();
     }
 
-    public void take_shot(Vector2d initial_ball_velocity) {
+    public void take_shot(Vector2d initial_ball_acceleration) {
+        acceleration= initial_ball_acceleration;
 
-        //TODO finish this method
+
+        
     }
 }

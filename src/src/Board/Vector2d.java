@@ -22,4 +22,14 @@ public class Vector2d {
 
         return y;
     }
+    public void change_x(double newx){
+        x = newx;
+    }
+    public void change_y(double newy){
+        y = newy;
+    }
+    public void change_both(double newx, double newy){
+        x = newx;
+        y = newy;
+    }
 }

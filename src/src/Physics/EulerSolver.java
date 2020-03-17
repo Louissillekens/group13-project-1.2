@@ -6,14 +6,10 @@ import Board.Vector2d;
 public class EulerSolver extends PuttingCourse {
 
     private double dt;
-    private double Px;
-    private double Pxprev;
-    private double Py;
-    private double Pyprev;
-    private double Vx;
-    private double Vy;
-    private double ax;
-    private double ay;
+    private Vector2d P;
+    private Vector2d Pprev;
+    private Vector2d V;
+    private Vector2d a;
     private double resistance;
     private double height;
     private final double g = 9.81;
@@ -24,17 +20,12 @@ public class EulerSolver extends PuttingCourse {
     }
 
     public void set_start_acceleration(double x, double y) {
-
-        ax = x;
-        ay = y;
+        Vector2d a = new Vector2d(x, y);
     }
 
     public void reset_ball() {
+        Vector2d p = new Vector2d(0, 0);
 
-        Px=0;
-        Py=0;
-        Vx=0;
-        Vy=0;
     }
 
     public void update_p() {

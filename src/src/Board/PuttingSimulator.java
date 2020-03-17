@@ -28,8 +28,7 @@ public class PuttingSimulator extends EulerSolver {
         return course.getBall().getLocation();
     }
 
-    public void take_shot(Vector2d initial_ball_acceleration) {
-
+    public void take_shot(Vector2d initial_ball_acceleration){
         acceleration = initial_ball_acceleration;
     }
 }

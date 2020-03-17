@@ -32,4 +32,5 @@ public class Vector2d {
         x = newx;
         y = newy;
     }
+
 }

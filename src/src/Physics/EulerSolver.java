@@ -13,6 +13,7 @@ public class EulerSolver extends PuttingCourse {
     private double resistance;
     private double height;
     private final double g = 9.81;
+    
 
     public void set_step_size(double h) {
 
@@ -20,48 +21,55 @@ public class EulerSolver extends PuttingCourse {
     }
 
     public void set_start_acceleration(double x, double y) {
-        Vector2d a = new Vector2d(x, y);
+        a.change_both(x, y);
     }
 
     public void reset_ball() {
-        Vector2d p = new Vector2d(0, 0);
+        P.change_both(0,0);
 
     }
 
-    public void update_p() {
-
-        Pxprev = Px;
-        Pyprev = Py;
-        Px= Px+Vx*dt;
-        Py = Py+Vy*dt;
+    public void update_P() {
+        Pprev = P;
+        double Px = P.get_x();
+        double Py = P.get_y();
+        double Vx = V.get_x();
+        double Vy = V.get_y();
+        P.change_both(Px+Vx*dt, Py+Vy*dt);
     }
 
-    public void update_v() {
-
-        Vx = Vx+ax*dt;
-        Vy = Vy+ay*dt;
+    public void update_V() {
+        double ax = a.get_x();
+        double ay = a.get_y();
+        double Vx = V.get_x();
+        double Vy = V.get_y();
+        V.change_both(Vx+ax*dt, Vy+ay*dt);
     }
 
     public void update_a() {
+        double ax = a.get_x();
+        double ay = a.get_y();
 
-        ax = ax - g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vx/Math.sqrt(Vx*Vx +Vy*Vy));
-        ay = ay - g*(get_height(Px,Py)-get_height(Pxprev, Pyprev))-get_resistance(Px,Py)*g*(Vy/Math.sqrt(Vx*Vx +Vy*Vy));
+        ay = ay - g*(height_f.evaluate(P)-height_f.evaluate(Pprev))-friction_f.evaluate(P)*g*(V.get_y()/Math.sqrt(V.get_x()*V.get_x()+V.get_y()*V.get_y()));
+        ax = ax - g*(height_f.evaluate(P)-height_f.evaluate(Pprev))-friction_f.evaluate(P)*g*(V.get_x()/Math.sqrt(V.get_x()*V.get_x()+V.get_y()*V.get_y()));
+        
+        a.change_both(ax, ay);
     }
 
     public double get_resistance(double x, double y) {
 
         Vector2d p = new Vector2d(x, y);
-        return evaluate_friction(p);
+        return friction_f.evaluatefriction(p);
     }
 
     public double get_height(double x, double y) {
 
         Vector2d p = new Vector2d(x, y);
-        return evaluate_height(p);
+        return height_f.evaluate(p);
     }
     public void update_all(){
-        update_p();
-        update_v();
+        update_P();
+        update_V();
         update_a();
     }
 }

@@ -1,15 +1,18 @@
 package Physics;
 
-import Board.PuttingCourse;
+import Board.Friction_function;
+import Board.Height_function;
 import Board.Vector2d;
 
-public class EulerSolver extends PuttingCourse {
+public class EulerSolver {
 
     private double dt;
     private Vector2d P;
     private Vector2d Pprev;
     private Vector2d V;
     private Vector2d a;
+    private Height_function height_f;
+    private Friction_function friction_f;
     private double resistance;
     private double height;
     private final double g = 9.81;
@@ -59,7 +62,7 @@ public class EulerSolver extends PuttingCourse {
     public double get_resistance(double x, double y) {
 
         Vector2d p = new Vector2d(x, y);
-        return friction_f.evaluatefriction(p);
+        return friction_f.evaluate(p);
     }
 
     public double get_height(double x, double y) {

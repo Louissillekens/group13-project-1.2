@@ -35,6 +35,7 @@ public class TestCourse {
         //fix this to the new constructor
         PuttingCourse test = new PuttingCourse(height_map, friction_map, start, flag, max_velocity, hole_tolerance, out_of_bounds_height, out_of_bounds_friction, ball);
 
+        System.out.println("location of the start vector, x: " + start.get_x() + " and y: " + start.get_y());
         System.out.println("height at start: " + test.get_height().evaluate(start));
         System.out.println("friction at start: " + test.get_friction().evaluate(start));
         Vector2d p = test.get_height().gradient(start);

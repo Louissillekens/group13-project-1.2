@@ -17,9 +17,10 @@ public class MakeTestCourse extends ApplicationAdapter implements InputProcessor
     private PerspectiveCamera cam;
     private ModelBatch modelbatch;
     private ModelBuilder modelbuilder;
-    private Model box;
+    private Model course;
     private ModelInstance modelInstance;
     private Environment environment;
+
 
     @Override
     public void create () {
